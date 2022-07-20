@@ -16,7 +16,7 @@ include('protect.php');
 
     <p>
         <label>Criar projeto</label>
-        <button><a href="./builProject.php">Criar</a></button>
+        <button><a href="criaProjeto.php">Criar</a></button>
     </p>
     <br/>
     <hr>
@@ -42,12 +42,10 @@ include('protect.php');
             </tr>
             <?php
         }
-
-        ?>
-        
+        ?>   
     </table>
     <p>
-        <form action='./editProject.php' method="post">
+        <form action='editProject.php' method="post">
         <label>Codigo do projeto para alterar:</label>
         <input type="number" name="codigo" placeholder='Codigo do proejeto'>
         <input type="submit" value="Editar">

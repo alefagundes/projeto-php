@@ -2,19 +2,6 @@
 include('conexao.php');
 include('protect.php');
 
-$codigo = $_POST['codigo'];
-$user = $_SESSION['id'];
-
-$sql_busca = "SELECT * FROM projeto WHERE codigo = $codigo AND usuario_id = $user";
-$sql_resProject = $mysqli->query($sql_busca) or die("Falha na execução do código SQL: " . $mysqli->error);
-
-if($sql_resProject->num_rows == 0) {
-    echo "<h2>Voce nao possui projetos com o codigo: $codigo cadastrado</h2>";
-}
-
-$teste = $sql_resProject->fetch_assoc();
-
-
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -26,23 +13,22 @@ $teste = $sql_resProject->fetch_assoc();
 </head>
 <body>
     <h1>Crie seu projeto</h1>
-    <form action='atualiza.php' method='POST'>
+    <form action='insertProject.php' method='POST'>
     <p>
         <label>Codigo do projeto:</label>
-        <input type='number' value='<?php if($sql_resProject->num_rows == 0){echo "";}else {echo $teste['codigo'];} ?>' name='codigo'placeholder='Codigo do projeto' required>
+        <input type='number' value='' name='codigo'placeholder='Codigo do projeto' required>
     </p>
     <p>
         <label>Nome do projeto:</label>
-        <input type='text' value='<?php if($sql_resProject->num_rows == 0){echo "";}else {echo $teste['nome'];} ?>' name='nome' placeholder='Nome' required>
+        <input type='text' value='' name='nome' placeholder='Nome' required>
     </p>
     <p>
         <label>Data do projeto:</label>
-        <input type='date' name='data_ini' value='<?php if($sql_resProject->num_rows == 0){echo "";}else {echo $teste['data_ini'];} ?>' placeholder='Data' required>
+        <input type='date' name='data_ini' value='' placeholder='Data' required>
     </p>
     <p>
     <label>Etapa 1:</label>
     <select name="etapa1">
-        <option value='<?php if($sql_resProject->num_rows == 0){echo "";}else {echo $teste['etapa1'];} ?>' selected><?php if($sql_resProject->num_rows == 0){echo "";}else {echo $teste['etapa1'];} ?></option>
         <option value=''></option>
         <option value='Padronizacao Planta Baixa'>Padronização Planta Baixa</option>
         <option value="Atribuicao de pontos">Atribuição de pontos</option>
@@ -58,7 +44,6 @@ $teste = $sql_resProject->fetch_assoc();
     <p>
     <label>Etapa 2:</label>
     <select name="etapa2">
-        <option value='<?php if($sql_resProject->num_rows == 0){echo "";}else {echo $teste['etapa2'];} ?>' selected><?php if($sql_resProject->num_rows == 0){echo "";}else {echo $teste['etapa2'];} ?></option>
         <option value=''></option>
         <option value='Padronizacao Planta Baixa'>Padronização Planta Baixa</option>
         <option value="Atribuicao de pontos">Atribuição de pontos</option>
@@ -73,7 +58,6 @@ $teste = $sql_resProject->fetch_assoc();
     <p>
     <label>Etapa 3:</label>
     <select name="etapa03">
-        <option value='<?php if($sql_resProject->num_rows == 0){echo "";}else {echo $teste['etapa03'];} ?>' selected><?php if($sql_resProject->num_rows == 0){echo "";}else {echo $teste['etapa03'];} ?></option>
         <option value=''></option>
         <option value='Padronizacao Planta Baixa'>Padronização Planta Baixa</option>
         <option value="Atribuicao de pontos">Atribuição de pontos</option>
@@ -88,7 +72,6 @@ $teste = $sql_resProject->fetch_assoc();
     <p>
     <label>Etapa 4:</label>
     <select name="etapa04">
-        <option value='<?php if($sql_resProject->num_rows == 0){echo "";}else {echo $teste['etapa04'];} ?>' selected><?php if($sql_resProject->num_rows == 0){echo "";}else {echo $teste['etapa04'];} ?></option>
         <option value=''></option>
         <option value='Padronizacao Planta Baixa'>Padronização Planta Baixa</option>
         <option value="Atribuicao de pontos">Atribuição de pontos</option>
@@ -103,7 +86,6 @@ $teste = $sql_resProject->fetch_assoc();
     <p>
     <label>Etapa 5:</label>
     <select name="etapa05">
-        <option value='<?php if($sql_resProject->num_rows == 0){echo "";}else {echo $teste['etapa05'];} ?>' selected><?php if($sql_resProject->num_rows == 0){echo "";}else {echo $teste['etapa05'];} ?></option>
         <option value=''></option>
         <option value='Padronizacao Planta Baixa'>Padronização Planta Baixa</option>
         <option value="Atribuicao de pontos">Atribuição de pontos</option>
@@ -118,7 +100,6 @@ $teste = $sql_resProject->fetch_assoc();
     <p>
     <label>Etapa 6:</label>
     <select name="etapa06">
-        <option value='<?php if($sql_resProject->num_rows == 0){echo "";}else {echo $teste['etapa06'];} ?>' selected><?php if($sql_resProject->num_rows == 0){echo "";}else {echo $teste['etapa06'];} ?></option>
         <option value=''></option>
         <option value='Padronizacao Planta Baixa'>Padronização Planta Baixa</option>
         <option value="Atribuicao de pontos">Atribuição de pontos</option>
@@ -133,7 +114,6 @@ $teste = $sql_resProject->fetch_assoc();
     <p>
     <label>Etapa 7:</label>
     <select name="etapa07">
-        <option value='<?php if($sql_resProject->num_rows == 0){echo "";}else {echo $teste['etapa07'];} ?>' selected><?php if($sql_resProject->num_rows == 0){echo "";}else {echo $teste['etapa07'];} ?></option>
         <option value=''></option>
         <option value='Padronizacao Planta Baixa'>Padronização Planta Baixa</option>
         <option value="Atribuicao de pontos">Atribuição de pontos</option>
@@ -148,7 +128,6 @@ $teste = $sql_resProject->fetch_assoc();
     <p>
     <label>Etapa 8:</label>
     <select name="etapa08">
-        <option value='<?php if($sql_resProject->num_rows == 0){echo "";}else {echo $teste['etapa08'];} ?>' selected><?php if($sql_resProject->num_rows == 0){echo "";}else {echo $teste['etapa08'];} ?></option>
         <option value=''></option>
         <option value='Padronizacao Planta Baixa'>Padronização Planta Baixa</option>
         <option value="Atribuicao de pontos">Atribuição de pontos</option>
@@ -162,11 +141,11 @@ $teste = $sql_resProject->fetch_assoc();
     </p>
     <p>
         <label>Data final do projeto:</label>
-        <input type='date' value='<?php if($sql_resProject->num_rows == 0){echo "";}else {echo $teste['data_fim'];} ?>' name='data_fim' placeholder='Data fim'>
+        <input type='date' value='' name='data_fim' placeholder='Data fim'>
     </p>
     <p>
         <label>Status do projeto:</label>
-        <input type='text' value='<?php if($sql_resProject->num_rows == 0){echo "";}else {echo $teste['estatus'];} ?>' name='estatus' placeholder='Status'>
+        <input type='text' value='' name='estatus' placeholder='Status'>
     </p>
         <input type="submit" value="SALVAR">
     </form>
