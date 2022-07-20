@@ -36,10 +36,13 @@ include('protect.php');
         
         while($linha = $sql_retUser->fetch_assoc()){
             ?>
-            <tr>
-                <td><?php echo $linha['codigo'];?></td>
-                <td><?php echo $linha['nome'];?></td>
-            </tr>
+            <form action="deleteProject.php" method="post">
+                <tr>
+                    <input type="hidden" name="codigo" value='<?php echo $linha['codigo'];?>'>
+                    <td><?php echo $linha['codigo'];?></td>
+                    <td><?php echo $linha['nome'];?><button type='submit'> X</button></td>
+                </tr>
+            </form>
             <?php
         }
         ?>   
