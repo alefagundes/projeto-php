@@ -12,7 +12,7 @@ include('protect.php');
     <title>Painel</title>
 </head>
 <body>
-    <h1>Bem vindo ao Painel: <?php echo $_SESSION['nome']; ?>.</h1>
+    <h1>Bem vindo ao Painel, <?php echo $_SESSION['nome']; ?>!</h1>
 
     <p>
         <label>Criar projeto</label>
@@ -40,7 +40,7 @@ include('protect.php');
                 <tr>
                     <input type="hidden" name="codigo" value='<?php echo $linha['codigo'];?>'>
                     <td><?php echo $linha['codigo'];?></td>
-                    <td><?php echo $linha['nome'];?><button type='submit'> X</button></td>
+                    <td><?php echo $linha['nome'];?>    <button type='submit'> X</button></td>
                 </tr>
             </form>
             <?php
@@ -50,7 +50,7 @@ include('protect.php');
     <p>
         <form action='editProject.php' method="post">
         <label>Codigo do projeto para alterar:</label>
-        <input type="number" name="codigo" placeholder='Codigo do proejeto'>
+        <input type="number" name="codigo" placeholder='Codigo do proejeto' required>
         <input type="submit" value="Editar">
         </form>
     </p>

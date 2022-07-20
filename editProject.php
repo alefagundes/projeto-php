@@ -25,7 +25,7 @@ $teste = $sql_resProject->fetch_assoc();
     <title>Criar projeto</title>
 </head>
 <body>
-    <h1>Crie seu projeto</h1>
+    <h1>Editando o projeto: <?php echo $teste['nome'];?></h1>
     <form action='atualiza.php' method='POST'>
     <p>
         <label>Codigo do projeto:</label>
@@ -171,7 +171,7 @@ $teste = $sql_resProject->fetch_assoc();
         <input type="submit" value="SALVAR">
     </form>
     <p>
-        <button><a href="./painel.php">Menu</a></button>
+        <button><a href="./painel.php">Voltar ao Painel</a></button>
     </p>
 </body>
 </html>
